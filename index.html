@@ -174,8 +174,8 @@
                 </div>
                 
                 <!-- Navigation Buttons -->
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;"><</button>
-                <button class="carousel-btn next" onclick="moveCarousel(1)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;">></button>
+                <button class="carousel-btn prev" onclick="prevSlide()" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;">❮</button>
+                <button class="carousel-btn next" onclick="nextSlide()" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;">❯</button>
                 
                 <!-- Dots -->
                 <div class="carousel-dots" style="display: flex; justify-content: center; gap: 10px; margin-top: var(--spacing-base);">
@@ -346,12 +346,11 @@
 
         // Carousel Funktionalität
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
+        const carousel = document.getElementById('vehicleCarousel');
         const dots = document.querySelectorAll('.dot');
-        const totalSlides = slides.length;
+        const totalSlides = 4;
 
         function updateCarousel() {
-            const carousel = document.getElementById('vehicleCarousel');
             carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
             
             // Update dots
@@ -366,9 +365,14 @@
             });
         }
 
-        function moveCarousel(direction) {
-            currentSlide += direction;
+        function nextSlide() {
+            currentSlide++;
             if (currentSlide >= totalSlides) currentSlide = 0;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide--;
             if (currentSlide < 0) currentSlide = totalSlides - 1;
             updateCarousel();
         }
@@ -380,7 +384,7 @@
 
         // Auto-play
         setInterval(() => {
-            moveCarousel(1);
+            nextSlide();
         }, 5000);
 
         // Initial state
