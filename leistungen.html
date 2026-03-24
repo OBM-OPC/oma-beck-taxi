@@ -9,6 +9,186 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Zusätzliche Styles für Leistungen-Seite */
+        .service-hero {
+            background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.7) 100%), url('img/hero-taxi.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0 80px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .service-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-base);
+        }
+
+        .service-hero h1 span {
+            color: var(--color-primary);
+        }
+
+        .service-hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-overview {
+            padding: var(--spacing-2xl) 0;
+            background: var(--color-light);
+        }
+
+        .services-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .services-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card-large {
+            background: #fff;
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--color-primary);
+        }
+
+        .service-card-large:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .service-card-large .icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .service-card-large h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-dark);
+        }
+
+        .service-card-large p {
+            color: var(--color-gray);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-base);
+        }
+
+        .service-detail {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--color-light);
+        }
+
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+        }
+
+        .service-detail-grid.reverse {
+            direction: rtl;
+        }
+
+        .service-detail-grid.reverse > * {
+            direction: ltr;
+        }
+
+        @media (max-width: 768px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+
+        .service-visual {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: 16px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 8px 30px rgba(244,196,48,0.3);
+        }
+
+        .service-content h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-dark);
+        }
+
+        .service-content h2 span {
+            color: var(--color-primary);
+        }
+
+        .service-content p {
+            color: var(--color-gray);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-base);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .feature-list li {
+            padding: var(--spacing-sm) 0;
+            color: var(--color-dark);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--color-success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .cta-box {
+            background: var(--color-dark);
+            color: #fff;
+            padding: var(--spacing-xl);
+            border-radius: 16px;
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .cta-box h3 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta-box p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: var(--spacing-md);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,115 +209,190 @@
         </div>
     </header>
 
-    <div class="page-header">
+    <!-- Hero Section -->
+    <section class="service-hero">
         <div class="container">
-            <h1>Unsere Dienstleistungen</h1>
-            <p>Professioneller Service für alle Ihre Transportbedürfnisse</p>
-        </div>
-    </div>
-
-    <section class="content-section">
-        <div class="container">
-            
-            <!-- Personenbeförderung -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>👥 Personenbeförderung</h2>
-                <p>Unser bequemer Personenbeförderungs-Service bietet Einzelpersonen und Gruppen jeglicher Art, sei es einer Familie, ein Freundeskreis etc., an, sie schnell zum erwünschten Ort zu befördern.</p>
-                <p>Dabei spielt es keine Rolle, ob die Fahrt lang oder kurz ist: Wir bringen Sie überall hin und das zu absolut fairen Preisen. Außerdem sind unsere Fahrzeuge sauber und komfortabel. Somit kann auch eine eigentlich anstrengende Fahrt doch ganz bequem und angenehm sein.</p>
-                
-                <div class="highlight-box">
-                    <h3>Warum unser Personentransport?</h3>
-                    <p>✓ Saubere und komfortable Fahrzeuge ✓ Erfahrene, freundliche Fahrer ✓ Flexible Abholzeiten ✓ Kurze Wartezeiten ✓ Faire Preise</p>
-                </div>
-            </div>
-
-            <!-- Großraumfahrzeuge -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>🚌 Großraumfahrzeuge / Busse</h2>
-                <p>Sie wollen mit ihrer Familie mal wieder einen Ausflug machen? Oder mit ihren Freunden auf die nächste Feier gehen? Sie haben keine Zeit, die Kinder zur Schule zu fahren?</p>
-                <p>Fragen Sie doch einfach nach einem unserer kleinen Busse. Außer unseren Normalfahrzeugen können Sie auch jederzeit eines unserer Großraumfahrzeuge vorbestellen. Diese haben für bis zu 8 Personen plus Gepäck reichlich viel Platz.</p>
-                <p>Bequem und unkompliziert bringen wir Sie und Ihre Begleitung zu Ihrem Ausflugsort, Ihrer Party oder anderen Aktivitäten.</p>
-                
-                <ul class="service-features">
-                    <li>Platz für bis zu 8 Personen</li>
-                    <li>Ausreichend Gepäckraum</li>
-                    <li>Ideal für Gruppenausflüge</li>
-                    <li>Vorbestellung möglich</li>
-                </ul>
-            </div>
-
-            <!-- Flughafentransfer -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>✈️ Flughafentransfer</h2>
-                <p>Die Urlaubswochen oder andere Reisen mit dem Flugzeug sollten nicht mit der Parkplatzsuche beginnen. Wir bieten Ihnen günstige und faire Festpreise zum Flughafen an – und bei Ihrer Rückkehr aus dem Urlaub steht unser Fahrer schon für Sie bereit.</p>
-                <p>Sollten Sie viel Gepäck dabei haben, steht unser Großraumwagen natürlich für Sie zur Verfügung. Unser Service beinhaltet außerdem ein klimatisiertes Fahrzeug sowie die Bereitstellung von Kindersitzen.</p>
-                <p>Lassen Sie sich ein wenig Urlaubsstress von uns abnehmen und bestellen Sie unseren Flughafentransfer ganz einfach hier vor.</p>
-                
-                <div class="highlight-box">
-                    <h3>Flughafentransfer-Vorteile</h3>
-                    <p>✓ Festpreise – keine Überraschungen ✓ Flugüberwachung inklusive ✓ Klimatisierte Fahrzeuge ✓ Kindersitze auf Wunsch ✓ Großraumfahrzeuge verfügbar ✓ Abholung bei Rückkehr</p>
-                </div>
-            </div>
-
-            <!-- Krankenfahrten -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>🏥 Krankenfahrten</h2>
-                <p>Sie müssen dringend ins Krankenhaus oder einfach mal wieder zum Arzt? Lassen Sie sich von uns bequem und problemlos zum Arzt fahren.</p>
-                <p>Unsere Krankenfahrten stehen für Sie zur Verfügung. Ob zum Arzt nebenan, zur Reha, Kur oder zum Krankenhaus in der Stadt, wir bieten Ihnen eine direkte Abholung und Transport mit Ihrem Gepäck bis zur Haustür.</p>
-                
-                <ul class="service-features">
-                    <li>Abholung bis zur Haustür</li>
-                    <li>Hilfe beim Ein- und Aussteigen</li>
-                    <li>Geduldige, einfühlsame Fahrer</li>
-                    <li>Diskretes Fahren</li>
-                    <li>Zuverlässige Termintreue</li>
-                </ul>
-            </div>
-
-            <!-- Kurierfahrten -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>📦 Kurierfahrten</h2>
-                <p>Wir bieten Ihnen einen einzigartigen, schnellen und zuverlässigen Brief- und Paketkurierdienst. Ob dringende Briefe, wichtige Pakete oder Geschenke – wir sind schneller als die Post.</p>
-                <p>Wir bringen alles zuverlässig und schnell an den gewünschten Empfänger. Diesen Service können Sie gleich hier bei uns vorbestellen.</p>
-                
-                <div class="highlight-box">
-                    <h3>Unser Kurier-Service</h3>
-                    <p>✓ Schneller als die Post ✓ Direkte Zustellung ✓ Express-Optionen ✓ Dokumente & Pakete ✓ Zeitfenster-Lieferung ✓ Sendungsverfolgung</p>
-                </div>
-            </div>
-
-            <!-- Besorgungsfahrten -->
-            <div style="margin-bottom: var(--spacing-2xl);">
-                <h2>🛒 Besorgungsfahrten</h2>
-                <p>Wenn Sie keine Zeit zum Einkaufen haben, weil Sie Gäste bekommen oder momentan nicht in der Lage sind, einkaufen zu gehen, erledigen wir Ihre Einkäufe.</p>
-                <p>Unsere Fahrer bringen Ihnen Ihre Einkäufe bis zur Haustür und nehmen Ihnen somit einen Teil von Ihrem Stress ab.</p>
-                
-                <ul class="service-features">
-                    <li>Lebensmitteleinkauf</li>
-                    <li>Apotheken-Besorgungen</li>
-                    <li>Lieferung bis zur Haustür</li>
-                    <li>Flexibel bei Bedarf</li>
-                </ul>
-            </div>
-
-            <!-- Weitere Dienstleistungen -->
-            <div class="highlight-box">
-                <h2>♿ Und vieles mehr...</h2>
-                <p>Wir bieten natürlich noch viele weitere Dienstleistungen rund um die Personenbeförderung an. Dazu gehört auch unser Rollstuhlfahrdienst für mobilitätseingeschränkte Personen.</p>
-                <p>Kontaktieren Sie uns einfach via E-Mail oder Telefon, falls Sie noch Fragen haben. Wir sind rund um die Uhr für Sie erreichbar.</p>
-                <div style="margin-top: var(--spacing-base);">
-                    <a href="kontakt.html" class="btn btn-outline" style="border-color: var(--color-dark);">Kontakt aufnehmen</a>
-                </div>
-            </div>
-
+            <h1>Unsere <span>Leistungen</span></h1>
+            <p>Professioneller Taxi-Service für Bad Kissingen und Umgebung. Pünktlich, zuverlässig und fair.</p>
         </div>
     </section>
 
+    <!-- Services Overview Cards -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Alles aus einer Hand</h2>
+                <p>Wählen Sie aus unserem umfassenden Serviceangebot</p>
+            </div>
+            
+            <div class="services-grid-2">
+                <div class="service-card-large">
+                    <div class="icon">👥</div>
+                    <h3>Personenbeförderung</h3>
+                    <p>Schneller Transport für Einzelpersonen und Gruppen. Saubere, komfortable Fahrzeuge zu fairen Preisen.</p>
+                    <a href="#personenbefoerderung" class="btn btn-outline">Mehr erfahren</a>
+                </div>
+
+                <div class="service-card-large">
+                    <div class="icon">🏥</div>
+                    <h3>Krankenfahrten</h3>
+                    <p>Zuverlässiger Transport zu Arztterminen, Kliniken und Reha. Diskret und komfortabel.</p>
+                    <a href="#krankenfahrten" class="btn btn-outline">Mehr erfahren</a>
+                </div>
+
+                <div class="service-card-large">
+                    <div class="icon">✈️</div>
+                    <h3>Flughafentransfer</h3>
+                    <p>Festpreise zum Flughafen mit Flugüberwachung. Klimatisierte Fahrzeuge, Kindersitze auf Wunsch.</p>
+                    <a href="#flughafen" class="btn btn-outline">Mehr erfahren</a>
+                </div>
+
+                <div class="service-card-large">
+                    <div class="icon">🚌</div>
+                    <h3>Großraumfahrzeuge</h3>
+                    <p>Bis zu 8 Personen plus Gepäck. Ideal für Familienausflüge, Feiern oder Gruppenfahrten.</p>
+                    <a href="#grossraum" class="btn btn-outline">Mehr erfahren</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Sections -->
+    
+    <!-- Personenbeförderung -->
+    <section class="service-detail" id="personenbefoerderung">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-visual">👥</div>
+                <div class="service-content">
+                    <h2>Personen<span>beförderung</span></h2>
+                    <p>Unser bequemer Personenbeförderungs-Service bietet Einzelpersonen und Gruppen jeglicher Art, sei es einer Familie, ein Freundeskreis etc., an, sie schnell zum erwünschten Ort zu befördern.</p>
+                    <p>Dabei spielt es keine Rolle, ob die Fahrt lang oder kurz ist: Wir bringen Sie überall hin und das zu absolut fairen Preisen. Außerdem sind unsere Fahrzeuge sauber und komfortabel.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Saubere und komfortable Fahrzeuge</li>
+                        <li>Erfahrene, freundliche Fahrer</li>
+                        <li>Flexible Abholzeiten</li>
+                        <li>Kurze Wartezeiten</li>
+                        <li>Faire Preise</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Krankenfahrten -->
+    <section class="service-detail" id="krankenfahrten">
+        <div class="container">
+            <div class="service-detail-grid reverse">
+                <div class="service-visual">🏥</div>
+                <div class="service-content">
+                    <h2>Kranken<span>fahrten</span></h2>
+                    <p>Sie müssen dringend ins Krankenhaus oder einfach mal wieder zum Arzt? Lassen Sie sich von uns bequem und problemlos zum Arzt fahren.</p>
+                    <p>Unsere Krankenfahrten stehen für Sie zur Verfügung. Ob zum Arzt nebenan, zur Reha, Kur oder zum Krankenhaus in der Stadt, wir bieten Ihnen eine direkte Abholung und Transport mit Ihrem Gepäck bis zur Haustür.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Abholung bis zur Haustür</li>
+                        <li>Hilfe beim Ein- und Aussteigen</li>
+                        <li>Geduldige, einfühlsame Fahrer</li>
+                        <li>Diskretes Fahren</li>
+                        <li>Zuverlässige Termintreue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flughafentransfer -->
+    <section class="service-detail" id="flughafen">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-visual">✈️</div>
+                <div class="service-content">
+                    <h2>Flughafen<span>transfer</span></h2>
+                    <p>Die Urlaubswochen oder andere Reisen mit dem Flugzeug sollten nicht mit der Parkplatzsuche beginnen. Wir bieten Ihnen günstige und faire Festpreise zum Flughafen an.</p>
+                    <p>Bei Ihrer Rückkehr aus dem Urlaub steht unser Fahrer schon für Sie bereit. Sollten Sie viel Gepäck dabei haben, steht unser Großraumwagen natürlich für Sie zur Verfügung.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Festpreise – keine Überraschungen</li>
+                        <li>Flugüberwachung inklusive</li>
+                        <li>Klimatisierte Fahrzeuge</li>
+                        <li>Kindersitze auf Wunsch</li>
+                        <li>Großraumfahrzeuge verfügbar</li>
+                        <li>Abholung bei Rückkehr</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Großraumfahrzeuge -->
+    <section class="service-detail" id="grossraum">
+        <div class="container">
+            <div class="service-detail-grid reverse">
+                <div class="service-visual">🚌</div>
+                <div class="service-content">
+                    <h2>Großraum<span>fahrzeuge</span></h2>
+                    <p>Sie wollen mit ihrer Familie mal wieder einen Ausflug machen? Oder mit ihren Freunden auf die nächste Feier gehen?</p>
+                    <p>Außer unseren Normalfahrzeugen können Sie auch jederzeit eines unserer Großraumfahrzeuge vorbestellen. Diese haben für bis zu 8 Personen plus Gepäck reichlich viel Platz.</p>
+                    
+                    <ul class="feature-list">
+                        <li>Platz für bis zu 8 Personen</li>
+                        <li>Ausreichend Gepäckraum</li>
+                        <li>Ideal für Gruppenausflüge</li>
+                        <li>Vorbestellung möglich</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weitere Services -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weitere Services</h2>
+                <p>Flexibel und zuverlässig für alle Ihre Bedürfnisse</p>
+            </div>
+            
+            <div class="services-grid-2">
+                <div class="service-card-large">
+                    <div class="icon">📦</div>
+                    <h3>Kurierfahrten</h3>
+                    <p>Briefe, Pakete und Geschenke schneller als die Post. Direkte Zustellung mit Zeitfenster-Option.</p>
+                    <ul class="feature-list" style="margin-top: var(--spacing-base);">
+                        <li>Schneller als die Post</li>
+                        <li>Direkte Zustellung</li>
+                        <li>Express-Optionen</li>
+                    </ul>
+                </div>
+
+                <div class="service-card-large">
+                    <div class="icon">🛒</div>
+                    <h3>Besorgungsfahrten</h3>
+                    <p>Einkäufe und Besorgungen für Sie erledigt. Wir bringen alles direkt bis zur Haustür.</p>
+                    <ul class="feature-list" style="margin-top: var(--spacing-base);">
+                        <li>Lebensmitteleinkauf</li>
+                        <li>Apotheken-Besorgungen</li>
+                        <li>Flexibel bei Bedarf</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>♿ Rollstuhltransport</h3>
+                <p>Wir bieten auch einen speziellen Rollstuhlfahrdienst für mobilitätseingeschränkte Personen an. Kontaktieren Sie uns für Details.</p>
+                <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="contact" style="background: #fff;">
         <div class="container">
             <div class="section-header">
-                <h2>Haben Sie Fragen?</h2>
-                <p>Kontaktieren Sie uns – wir helfen Ihnen gerne weiter</p>
+                <h2>Bereit für Ihre Fahrt?</h2>
+                <p>Kontaktieren Sie uns – wir sind rund um die Uhr für Sie da</p>
             </div>
             <div style="text-align: center;">
                 <a href="tel:+491726803634" class="btn btn-primary" style="margin-right: var(--spacing-base); margin-bottom: var(--spacing-base);">📞 0172/6803634</a>
@@ -164,6 +419,20 @@
             const nav = document.getElementById('mainNav');
             nav.classList.toggle('active');
         }
+
+        // Smooth Scroll für Anker-Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
