@@ -3,535 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi-Service | Ihr zuverlässiger Partner vor Ort</title>
-    <meta name="description" content="Professioneller Taxi-Service für Kurgäste, Touristen und Geschäftsreisende. Pünktlich, zuverlässig, ortskundig.">
+    <title>Taxi-Service Bad Kissingen | Ihr zuverlässiger Partner vor Ort</title>
+    <meta name="description" content="Professioneller Taxi-Service für Bad Kissingen. Personenbeförderung, Flughafentransfer, Krankenfahrten, Kurierfahrten. 24/7 erreichbar unter 0152/58122222.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #F4C430;
-            --color-primary-dark: #E5B526;
-            --color-dark: #1A1A1A;
-            --color-gray: #6B7280;
-            --color-light: #FDF8F3;
-            --color-success: #10B981;
-            --color-error: #EF4444;
-            --font-family: 'Inter', sans-serif;
-            --container-max: 1200px;
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-base: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            --spacing-2xl: 4rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            color: var(--color-dark);
-            background-color: #fff;
-        }
-
-        .container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        /* Header */
-        header {
-            background: var(--color-dark);
-            padding: var(--spacing-base) 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--color-primary);
-        }
-
-        .phone-header {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .phone-header:hover {
-            color: var(--color-primary);
-        }
-
-        /* Navigation */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-lg);
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--color-dark) 0%, #2d2d2d 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--color-primary);
-            opacity: 0.05;
-            transform: skewX(-15deg) translateX(20%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            color: #fff;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .hero h1 span {
-            color: var(--color-primary);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-base);
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: var(--color-primary);
-            color: var(--color-dark);
-        }
-
-        .btn-primary:hover {
-            background: var(--color-primary-dark);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-        }
-
-        .btn-secondary:hover {
-            background: #fff;
-            color: var(--color-dark);
-        }
-
-        /* Features */
-        .features {
-            padding: var(--spacing-2xl) 0;
-            background: var(--color-light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .feature-card {
-            background: #fff;
-            padding: var(--spacing-xl);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-md);
-            font-size: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .feature-card p {
-            color: var(--color-gray);
-        }
-
-        /* Services Preview */
-        .services {
-            padding: var(--spacing-2xl) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .section-header p {
-            color: var(--color-gray);
-            font-size: 1.125rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .service-card {
-            background: var(--color-light);
-            padding: var(--spacing-xl);
-            border-radius: 12px;
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .service-card p {
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-base);
-        }
-
-        .service-price {
-            font-weight: 600;
-            color: var(--color-dark);
-        }
-
-        /* About Preview */
-        .about {
-            padding: var(--spacing-2xl) 0;
-            background: var(--color-dark);
-            color: #fff;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.25rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .about-text h2 span {
-            color: var(--color-primary);
-        }
-
-        .about-text p {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: var(--spacing-base);
-        }
-
-        .about-stats {
-            display: flex;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-lg);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--color-primary);
-        }
-
-        .stat-label {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.875rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: var(--spacing-2xl) 0;
-            background: var(--color-light);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-base);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .contact-item-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--color-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .contact-item-content h4 {
-            margin-bottom: 4px;
-        }
-
-        .contact-item-content p,
-        .contact-item-content a {
-            color: var(--color-gray);
-            text-decoration: none;
-        }
-
-        .contact-item-content a:hover {
-            color: var(--color-dark);
-        }
-
-        .contact-form-wrapper {
-            background: #fff;
-            padding: var(--spacing-xl);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .contact-form-wrapper h3 {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 500;
-        }
-
-        .form-group label .required {
-            color: var(--color-error);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(244,196,48,0.2);
-        }
-
-        .form-group input.error,
-        .form-group textarea.error {
-            border-color: var(--color-error);
-        }
-
-        .error-message {
-            color: var(--color-error);
-            font-size: 0.875rem;
-            margin-top: var(--spacing-xs);
-            display: none;
-        }
-
-        .error-message.visible {
-            display: block;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--color-dark);
-            color: #fff;
-            padding: var(--spacing-xl) 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--spacing-base);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: var(--spacing-lg);
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .about-content,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                justify-content: center;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">🚕 TAXI</div>
-            <nav>
+            <a href="index.html" class="logo">🚕 TAXI</a>
+            <nav id="mainNav">
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#leistungen">Leistungen</a></li>
-                    <li><a href="#ueber-uns">Über uns</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="leistungen.html">Leistungen</a></li>
+                    <li><a href="tarife.html">Tarife</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
-            <a href="tel:+491234567890" class="phone-header">
-                <span>📞</span> 0123 4567890
+            <a href="tel:+4915258122222" class="phone-header">
+                <span>📞</span> 0152/58122222
             </a>
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Ihr <span>zuverlässiger</span> Taxi-Service vor Ort</h1>
-                <p>Pünktlich, freundlich und ortskundig – wir bringen Sie sicher ans Ziel. Ob Flughafentransfer, Kurort oder Stadttour.</p>
+                <h1>Ihr <span>zuverlässiger</span> Taxi-Service in Bad Kissingen</h1>
+                <p>Pünktlich, freundlich und ortskundig – wir bringen Sie sicher ans Ziel. Ob Flughafentransfer, Arztbesuch oder Stadttour.</p>
                 <div class="hero-buttons">
-                    <a href="tel:+491234567890" class="btn btn-primary">📞 Jetzt anrufen</a>
-                    <a href="#kontakt" class="btn btn-secondary">✉️ Nachricht schreiben</a>
+                    <a href="tel:+4915258122222" class="btn btn-primary">📞 Jetzt anrufen</a>
+                    <a href="kontakt.html" class="btn btn-secondary">✉️ Nachricht schreiben</a>
                 </div>
             </div>
         </div>
@@ -543,86 +48,89 @@
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
                     <h3>Pünktlichkeit</h3>
-                    <p>Wir halten unsere Zeit. Ihr Taxi ist zur vereinbarten Zeit am vereinbarten Ort.</p>
+                    <p>Wir halten unsere Zeit. Ihr Taxi ist zur vereinbarten Zeit am vereinbarten Ort – 24 Stunden, 7 Tage die Woche.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🗺️</div>
                     <h3>Ortskenntnis</h3>
-                    <p>Jahrelange Erfahrung in der Region. Wir kennen die schnellsten Routen.</p>
+                    <p>Jahrelange Erfahrung in der Region. Wir kennen Bad Kissingen und Umgebung wie unsere Westentasche.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Faire Preise</h3>
-                    <p>Transparente Preise ohne versteckte Kosten. Festpreis auf Anfrage.</p>
+                    <p>Transparente Tarife ohne versteckte Kosten. Festpreise auf Anfrage für Flughafentransfers.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="services" id="leistungen">
+    <section class="services">
         <div class="container">
             <div class="section-header">
                 <h2>Unsere Leistungen</h2>
-                <p>Von Flughafentransfers bis zu Stadttouren – wir sind für Sie da</p>
+                <p>Von der Personenbeförderung bis zum Paketkurier – wir sind für Sie da</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
+                    <h3>👥 Personenbeförderung</h3>
+                    <p>Schneller Transport für Einzelpersonen und Gruppen. Saubere, komfortable Fahrzeuge zu fairen Preisen.</p>
+                    <p class="service-price">Jederzeit verfügbar</p>
+                </div>
+                <div class="service-card">
+                    <h3>🚌 Großraumfahrzeuge</h3>
+                    <p>Bis zu 8 Personen plus Gepäck. Ideal für Familienausflüge, Feiern oder Gruppenfahrten.</p>
+                    <p class="service-price">Auf Vorbestellung</p>
+                </div>
+                <div class="service-card">
                     <h3>✈️ Flughafentransfer</h3>
-                    <p>Pünktliche Abholung und Bringdienst zu allen Flughäfen in der Region. Inklusive Flugzeugüberwachung.</p>
-                    <p class="service-price">Ab 45€ pro Strecke</p>
+                    <p>Günstige Festpreise zum Flughafen. Flugüberwachung, klimatisierte Fahrzeuge, Kindersitze auf Wunsch.</p>
+                    <p class="service-price">Jetzt buchen</p>
                 </div>
                 <div class="service-card">
-                    <h3>🏥 Kurortfahrten</h3>
-                    <p>Zuverlässiger Transport zu Kliniken, Kurorten und Arztterminen. Diskret und komfortabel.</p>
-                    <p class="service-price">Ortskundige Fahrer</p>
+                    <h3>🏥 Krankenfahrten</h3>
+                    <p>Zuverlässiger Transport zu Arztterminen, Kliniken, Reha oder Kur. Direkte Abholung bis zur Haustür.</p>
+                    <p class="service-price">Diskret & komfortabel</p>
                 </div>
-                <div class="service-card">
-                    <h3>🏙️ Stadttouren</h3>
-                    <p>Entdecken Sie die Sehenswürdigkeiten der Region mit einem ortskundigen Fahrer.</p>
-                    <p class="service-price">Auf Anfrage</p>
-                </div>
-                <div class="service-card">
-                    <h3>💼 Geschäftsfahrten</h3>
-                    <p>Zuverlässiger Service für Geschäftskunden. Termintreue und professioneller Service garantiert.</p>
-                    <p class="service-price">Business-Flatrates verfügbar</p>
-                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="leistungen.html" class="btn btn-outline">Alle Leistungen anzeigen</a>
             </div>
         </div>
     </section>
 
-    <section class="about" id="ueber-uns">
+    <section class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Seit <span>über 20 Jahren</span> für Sie unterwegs</h2>
-                    <p>Unser Taxi-Service steht für Zuverlässigkeit, Freundlichkeit und Ortskenntnis. Wir kennen die Region wie unsere Westentasche und bringen Sie sicher und pünktlich ans Ziel.</p>
-                    <p>Egal ob Sie Kurgast, Tourist oder Geschäftsreisender sind – bei uns sind Sie in guten Händen. Unsere modernen Fahrzeuge bieten höchsten Komfort.</p>
+                    <h2>Taxi Direkt Bad Kissingen</h2>
+                    <p>Unser Taxi-Service steht für Zuverlässigkeit, Freundlichkeit und Ortskenntnis. Wir bringen Sie sicher und pünktlich ans Ziel – egal ob Sie Kurgast, Tourist oder Geschäftsreisender sind.</p>
+                    <p>Egal ob Sie zum Arzt müssen, einen Flughafentransfer benötigen oder einfach nur einkaufen gehen möchten: Bei uns sind Sie in guten Händen.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Jahre Erfahrung</div>
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Erreichbarkeit</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">50k+</div>
-                            <div class="stat-label">Fahrten/Jahr</div>
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Personen + Gepäck</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">4.9★</div>
-                            <div class="stat-label">Kundenbewertung</div>
+                            <div class="stat-number">♿</div>
+                            <div class="stat-label">Rollstuhltransport</div>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <!-- Platzhalter für Bild -->
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; height: 400px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5);">
-                        📸 Team-Foto
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; height: 400px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); flex-direction: column; gap: var(--spacing-base);">
+                        <span style="font-size: 4rem;">🚕</span>
+                        <span>Ihr Taxi in Bad Kissingen</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="kontakt">
+    <section class="contact">
         <div class="container">
             <div class="section-header">
                 <h2>Kontaktieren Sie uns</h2>
@@ -635,7 +143,7 @@
                         <div class="contact-item-icon">📞</div>
                         <div class="contact-item-content">
                             <h4>Telefon</h4>
-                            <a href="tel:+491234567890">0123 4567890</a>
+                            <a href="tel:+4915258122222">0152/58122222</a>
                             <p>24/7 erreichbar</p>
                         </div>
                     </div>
@@ -643,27 +151,20 @@
                         <div class="contact-item-icon">✉️</div>
                         <div class="contact-item-content">
                             <h4>E-Mail</h4>
-                            <a href="mailto:info@taxi-service.de">info@taxi-service.de</a>
+                            <a href="mailto:eminoenal@web.de">eminoenal@web.de</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📍</div>
                         <div class="contact-item-content">
                             <h4>Adresse</h4>
-                            <p>Musterstraße 123<br>12345 Musterstadt</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon">🕐</div>
-                        <div class="contact-item-content">
-                            <h4>Öffnungszeiten</h4>
-                            <p>Mo-So: 24 Stunden<br>Feiertags: 24 Stunden</p>
+                            <p>Beatrixstraße 21<br>97688 Bad Kissingen</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-wrapper">
-                    <h3>Nachricht senden</h3>
-                    <form id="contactForm" action="#" method="POST">
+                    <h3>Schnellanfrage</h3>
+                    <form id="quickContactForm" action="#" method="POST">
                         <div class="form-group">
                             <label for="name">Name <span class="required">*</span></label>
                             <input type="text" id="name" name="name" required>
@@ -675,15 +176,11 @@
                             <span class="error-message">Bitte geben Sie Ihre Telefonnummer ein</span>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-Mail</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
                             <label for="message">Nachricht <span class="required">*</span></label>
                             <textarea id="message" name="message" required placeholder="Wann und wohin möchten Sie fahren?"></textarea>
                             <span class="error-message">Bitte geben Sie eine Nachricht ein</span>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Anfrage senden</button>
                     </form>
                 </div>
             </div>
@@ -693,18 +190,25 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2026 Taxi-Service. Alle Rechte vorbehalten.</p>
+                <p>&copy; 2026 Taxi-Service Bad Kissingen. Alle Rechte vorbehalten.</p>
                 <div class="footer-links">
-                    <a href="#">Impressum</a>
-                    <a href="#">Datenschutz</a>
+                    <a href="kontakt.html">Kontakt</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
         // Formular-Validierung
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('quickContactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             let isValid = true;
@@ -725,13 +229,12 @@
             });
             
             if (isValid) {
-                // Hier würde normalerweise der Formularversand erfolgen
-                alert('Vielen Dank für Ihre Nachricht! Wir melden uns bei Ihnen.');
+                alert('Vielen Dank für Ihre Anfrage! Wir melden uns bei Ihnen.');
                 this.reset();
             }
         });
 
-        // Smooth Scroll für Navigation
+        // Smooth Scroll für interne Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

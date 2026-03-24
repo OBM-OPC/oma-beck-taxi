@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | Taxi-Service Bad Kissingen</title>
+    <meta name="description" content="Kontaktieren Sie Taxi-Service Bad Kissingen. 24/7 erreichbar unter 0152/58122222. Schreiben Sie uns oder rufen Sie an – wir sind für Sie da.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">🚕 TAXI</a>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="leistungen.html">Leistungen</a></li>
+                    <li><a href="tarife.html">Tarife</a></li>
+                    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+4915258122222" class="phone-header">
+                <span>📞</span> 0152/58122222
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Treten Sie mit uns in Verbindung</h1>
+            <p>Wir sind rund um die Uhr für Sie erreichbar</p>
+        </div>
+    </div>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Direkter Kontakt</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <div class="contact-item-content">
+                            <h4>Telefon</h4>
+                            <a href="tel:+4915258122222" style="font-size: 1.25rem; font-weight: 600;">0152/58122222</a>
+                            <p>24/7 erreichbar – auch an Feiertagen</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div class="contact-item-content">
+                            <h4>E-Mail</h4>
+                            <a href="mailto:eminoenal@web.de">eminoenal@web.de</a>
+                            <p>Wir antworten schnellstmöglich</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-content">
+                            <h4>Adresse</h4>
+                            <p>Beatrixstraße 21<br>97688 Bad Kissingen</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">🕐</div>
+                        <div class="contact-item-content">
+                            <h4>Erreichbarkeit</h4>
+                            <p>Montag – Sonntag: 24 Stunden<br>Feiertags: 24 Stunden</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-primary); border-radius: 12px;">
+                        <h4 style="color: var(--color-dark); margin-bottom: var(--spacing-sm);">🚕 Schnell bestellen?</h4>
+                        <p style="color: var(--color-dark);">Rufen Sie uns direkt an – wir sind sofort für Sie unterwegs!</p>
+                        <a href="tel:+4915258122222" class="btn btn-outline" style="border-color: var(--color-dark); color: var(--color-dark); margin-top: var(--spacing-base);">📞 Jetzt anrufen</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <div id="formSuccess" class="form-success">
+                        <strong>Danke!</strong> Wir melden uns in Kürze bei Ihnen.
+                    </div>
+
+                    <h3>Nachricht senden</h3>
+                    <p style="color: var(--color-gray); margin-bottom: var(--spacing-md);">Füllen Sie das Formular aus – wir werden uns umgehend bei Ihnen melden.</p>
+
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="service">Dienstleistung <span class="required">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">Bitte wählen...</option>
+                                <option value="personenbefoerderung">Personenbeförderung</option>
+                                <option value="grossraum">Großraumfahrzeug / Bus</option>
+                                <option value="flughafen">Flughafentransfer</option>
+                                <option value="krankenfahrt">Krankenfahrt</option>
+                                <option value="kurier">Kurierfahrt</option>
+                                <option value="besorgung">Besorgungsfahrt</option>
+                                <option value="rollstuhl">Rollstuhltransport</option>
+                                <option value="sonstiges">Sonstiges</option>
+                            </select>
+                            <span class="error-message">Bitte wählen Sie eine Dienstleistung</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Ihr Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+                            <span class="error-message">Bitte geben Sie Ihren Namen ein</span>
+                        </div>
+
+                        <div class="form-group"
+                        >
+                            <label for="email">Ihre E-Mail <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="max@beispiel.de" required>
+                            <span class="error-message">Bitte geben Sie eine gültige E-Mail-Adresse ein</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer</label>
+                            <input type="tel" id="phone" name="phone" placeholder="0152 / 58 122 222">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht <span class="required">*</span></label>
+                            <textarea id="message" name="message" required placeholder="Wann und wohin möchten Sie fahren? Weitere Details..."></textarea>
+                            <span class="error-message">Bitte geben Sie eine Nachricht ein</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
+                    </form>
+
+                    <p style="color: var(--color-gray); font-size: 0.875rem; margin-top: var(--spacing-base); text-align: center;">
+                        Mit dem Absenden stimmen Sie unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Taxi-Service Bad Kissingen. Alle Rechte vorbehalten.</p>
+                <div class="footer-links">
+                    <a href="kontakt.html">Kontakt</a>
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Erweiterte Formular-Validierung
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const requiredFields = ['service', 'name', 'email', 'message'];
+            
+            // Reset errors
+            document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+            document.querySelectorAll('.error-message.visible').forEach(el => el.classList.remove('visible'));
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorMsg = field.nextElementSibling;
+                
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    if (errorMsg && errorMsg.classList.contains('error-message')) {
+                        errorMsg.classList.add('visible');
+                    }
+                    isValid = false;
+                }
+            });
+
+            // Email validation
+            const emailField = document.getElementById('email');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailField.value && !emailPattern.test(emailField.value)) {
+                emailField.classList.add('error');
+                const errorMsg = emailField.nextElementSibling;
+                if (errorMsg && errorMsg.classList.contains('error-message')) {
+                    errorMsg.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
+                    errorMsg.classList.add('visible');
+                }
+                isValid = false;
+            }
+            
+            if (isValid) {
+                document.getElementById('formSuccess').classList.add('visible');
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('formSuccess').classList.remove('visible');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
