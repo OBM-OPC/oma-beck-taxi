@@ -149,33 +149,78 @@
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="fahrzeuge">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Taxi Direkt Bad Kissingen</h2>
-                    <p>Unser Taxi-Service steht für Zuverlässigkeit, Freundlichkeit und Ortskenntnis. Wir bringen Sie sicher und pünktlich ans Ziel – egal ob Sie Kurgast, Tourist oder Geschäftsreisender sind.</p>
-                    <p>Egal ob Sie zum Arzt müssen, einen Flughafentransfer benötigen oder einfach nur einkaufen gehen möchten: Bei uns sind Sie in guten Händen.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Erreichbarkeit</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">8</div>
-                            <div class="stat-label">Personen + Gepäck</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">♿</div>
-                            <div class="stat-label">Rollstuhltransport</div>
-                        </div>
+            <div class="section-header" style="text-align: center; margin-bottom: var(--spacing-xl);">
+                <h2 style="color: #fff;">Unsere <span style="color: var(--color-primary);">Fahrzeuge</span></h2>
+                <p style="color: rgba(255,255,255,0.8);">Modern, sauber und komfortabel – für Ihre perfekte Fahrt</p>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="carousel-container" style="position: relative; max-width: 900px; margin: 0 auto;">
+                <div class="carousel" id="vehicleCarousel" style="display: flex; overflow: hidden; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                    <div class="carousel-slide" style="min-width: 100%; transition: transform 0.5s ease;">
+                        <img src="img/auto1.jpg" alt="Taxi Fahrzeug 1" style="width: 100%; height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="carousel-slide" style="min-width: 100%; transition: transform 0.5s ease;">
+                        <img src="img/auto2.jpg" alt="Taxi Fahrzeug 2" style="width: 100%; height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="carousel-slide" style="min-width: 100%; transition: transform 0.5s ease;">
+                        <img src="img/auto3.jpg" alt="Taxi Fahrzeug 3" style="width: 100%; height: 500px; object-fit: cover;">
+                    </div>
+                    <div class="carousel-slide" style="min-width: 100%; transition: transform 0.5s ease;">
+                        <img src="img/auto4.jpg" alt="Taxi Fahrzeug 4" style="width: 100%; height: 500px; object-fit: cover;">
                     </div>
                 </div>
-                <div class="about-image">
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; height: 400px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); flex-direction: column; gap: var(--spacing-base);">
-                        <span style="font-size: 4rem;">🚕</span>
-                        <span>Ihr Taxi in Bad Kissingen</span>
-                    </div>
+                
+                <!-- Navigation Buttons -->
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;"><</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 10;">></button>
+                
+                <!-- Dots -->
+                <div class="carousel-dots" style="display: flex; justify-content: center; gap: 10px; margin-top: var(--spacing-base);">
+                    <span class="dot" onclick="goToSlide(0)" style="width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s;"></span>
+                    <span class="dot" onclick="goToSlide(1)" style="width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s;"></span>
+                    <span class="dot" onclick="goToSlide(2)" style="width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s;"></span>
+                    <span class="dot" onclick="goToSlide(3)" style="width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: background 0.3s;"></span>
+                </div>
+            </div>
+            
+            <!-- Features Grid -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); margin-top: var(--spacing-2xl);">
+                <style>
+                    @media (max-width: 768px) {
+                        #fahrzeuge div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                            grid-template-columns: 1fr !important;
+                        }
+                        #fahrzeuge .carousel-slide img {
+                            height: 300px !important;
+                        }
+                    }
+                    .carousel-btn:hover {
+                        background: var(--color-primary) !important;
+                    }
+                    .dot.active {
+                        background: var(--color-primary) !important;
+                    }
+                </style>
+                
+                <div style="text-align: center; padding: var(--spacing-lg);">
+                    <div style="font-size: 3rem; margin-bottom: var(--spacing-base);">✨</div>
+                    <h3 style="color: #fff; margin-bottom: var(--spacing-sm);">Immer sauber</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Unsere Fahrzeuge werden täglich gereinigt und gepflegt. Hygiene hat für uns oberste Priorität.</p>
+                </div>
+                
+                <div style="text-align: center; padding: var(--spacing-lg);">
+                    <div style="font-size: 3rem; margin-bottom: var(--spacing-base);">🚗</div>
+                    <h3 style="color: #fff; margin-bottom: var(--spacing-sm);">Geräumig & komfortabel</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Viel Beinfreiheit, gepolsterte Sitze und Klimaanlage für eine entspannte Fahrt.</p>
+                </div>
+                
+                <div style="text-align: center; padding: var(--spacing-lg);">
+                    <div style="font-size: 3rem; margin-bottom: var(--spacing-base);">♿</div>
+                    <h3 style="color: #fff; margin-bottom: var(--spacing-sm);">Barrierefrei</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Rollstuhlgerechte Fahrzeuge verfügbar. Mobilität für alle ist uns wichtig.</p>
                 </div>
             </div>
         </div>
@@ -298,6 +343,48 @@
                 }
             });
         });
+
+        // Carousel Funktionalität
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const carousel = document.getElementById('vehicleCarousel');
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                    dot.style.background = '#F4C430';
+                } else {
+                    dot.classList.remove('active');
+                    dot.style.background = 'rgba(255,255,255,0.5)';
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-play
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+
+        // Initial state
+        updateCarousel();
     </script>
 </body>
 </html>
